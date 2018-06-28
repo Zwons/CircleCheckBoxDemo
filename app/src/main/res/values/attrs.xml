@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--CircleCheckBox相关-->
+    <declare-styleable name="CircleCheckBox">
+        <!--内圆半径-->
+        <attr name="radius_size" format="dimension" />
+        <!--圆形的padding-->
+        <attr name="padding_size" format="dimension" />
+        <!--对号大小-->
+        <attr name="tick_size" format="dimension" />
+        <!--未选中时，边框大小-->
+        <attr name="stroke_size" format="dimension" />
+        <!--对号的颜色-->
+        <attr name="tickColor" format="color" />
+        <!--选中时，圆的颜色-->
+        <attr name="checkedColor" format="color" />
+        <!--未选中时，圆的颜色-->
+        <attr name="uncheckedColor" format="color" />
+        <!--未选中时，圆的边框的颜色-->
+        <attr name="strokeColor" format="color" />
+    </declare-styleable>
+
+</resources>
