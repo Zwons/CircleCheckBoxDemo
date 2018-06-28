@@ -34,7 +34,7 @@ strokeColor|color|未选中时，圆的边框的颜色
         app:uncheckedColor="@android:color/holo_green_light" />
 ```
 ## License
-
+```
 MIT License
 
 Copyright (c) 2018 ymht
@@ -56,4 +56,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
+```
