@@ -33,7 +33,8 @@ strokeColor|color|未选中时，圆的边框的颜色
         app:tick_size="2dp"
         app:uncheckedColor="@android:color/holo_green_light" />
 ```
-##　License
+## License
+
 MIT License
 
 Copyright (c) 2018 ymht
