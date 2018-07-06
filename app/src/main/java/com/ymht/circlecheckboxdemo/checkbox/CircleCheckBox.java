@@ -9,6 +9,7 @@ import android.graphics.Point;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
@@ -25,6 +26,8 @@ public class CircleCheckBox extends AppCompatCheckBox {
     private Point point;
     private int mRadiusSize;//半径大小
     private int mPaddingSize;//padding大小
+    private OnCircleCheckedChangeListener listener;
+    private boolean isChecked;//是否选中的标记
 
     public CircleCheckBox(Context context) {
         this(context, null);
@@ -70,8 +73,21 @@ public class CircleCheckBox extends AppCompatCheckBox {
         unCheckDrawable.setStrokeColor(strokeColor);
         unCheckDrawable.setStrokeSize(strokeSize);
 
-        setButtonDrawable(unCheckDrawable);
-        setClickable(true);
+        isChecked = isChecked();
+        if (isChecked()) {
+            setButtonDrawable(checkDrawable);
+        } else {
+            setButtonDrawable(unCheckDrawable);
+        }
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isChecked = !isChecked;
+                if (listener != null) {
+                    listener.onCircleCheckedChange(isChecked);
+                }
+            }
+        });
         setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -82,6 +98,13 @@ public class CircleCheckBox extends AppCompatCheckBox {
                 }
             }
         });
+    }
+
+    public void setCircleChecked(boolean checked) {
+        if (isChecked != checked) {
+            setChecked(checked);
+            isChecked = checked;
+        }
     }
 
     @Override
@@ -120,5 +143,13 @@ public class CircleCheckBox extends AppCompatCheckBox {
 
         unCheckDrawable.setRadius(mRadiusSize);
         unCheckDrawable.setCenterPoint(point);
+    }
+
+    public void setOnCircleCheckedChangeListener(OnCircleCheckedChangeListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnCircleCheckedChangeListener {
+        void onCircleCheckedChange(boolean isChecked);
     }
 }
